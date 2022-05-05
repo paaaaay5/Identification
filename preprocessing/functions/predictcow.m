@@ -1,10 +1,8 @@
-function I=predictcow(X,vec)
-    [~,~,max]=maxplot(X);
-    max=exp(max);
+function I=predictcow(m,vec)
     E=[];
     for i=1:size(vec,2)
-        err=immse(max,vec(i).mean);
+        err=immse(m,vec(i).maxh);
         E(i)=err;
     end
     [~,I]=min(E);
-endval_csv_files
+end

@@ -1,4 +1,4 @@
-function resized_cow=hip(inv_cow)
+function resized_cow=crop_cow(inv_cow)
 
     for j=1:size(inv_cow,2)
         
@@ -21,19 +21,24 @@ function resized_cow=hip(inv_cow)
             F=img;
             
         end
+            
         
         S=sum(F,2);
-        for i=1:(size(S,1)-1)
+        
+        
+        
+         for i=1:(size(S,1)-1)
             diff=S(i)-S(i+1);
             
             if diff == S(i)
-                start=i-70;
-                resized_cow(j).img=F(start:i,:);
+
+                resized_cow(j).img=F(1:i,:);
                 break
                 
             elseif i == size(S,1)-1
-                resized_cow(j).img=F(i-69:i+1,:);
+                resized_cow(j).img=F(1:i+1,:);
             end
         end
+        
     end
 end
